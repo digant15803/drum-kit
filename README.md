@@ -40,7 +40,7 @@ The architecture consists of:
 3. Starting Cassandra node 1 :-
 - Change the path according to your convenience.
    ```bash
-    docker run --name audio_node1 -p 9042:9042 -v {path} -e CASSANDRA_CLUSTER_NAME=AudioCluster -e CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch -e CASSANDRA_DC=datacenter1 -d Cassandra
+    docker run --name audio_node1 -p 9042:9042 -v "{path}:/var/lib/cassandra/data" -e CASSANDRA_CLUSTER_NAME=AudioCluster -e CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch -e CASSANDRA_DC=datacenter1 -d Cassandra
    ```
 4. Checking the status of node 1 (Make sure that it appears like this
     ```bash
@@ -49,7 +49,7 @@ The architecture consists of:
 5. After making sure that status is correct then start 2nd node:
 - Change the path here also accordingly
    ```bash
-   docker run --name audio_node2 -v {PATH} -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' audio_node1)" -e CASSANDRA_CLUSTER_NAME=AudioCluster -e CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch -e CASSANDRA_DC=datacenter1 -d cassandra:latest
+   docker run --name audio_node2 -v "{path}:/var/lib/cassandra/data" -e CASSANDRA_SEEDS="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' audio_node1)" -e CASSANDRA_CLUSTER_NAME=AudioCluster -e CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch -e CASSANDRA_DC=datacenter1 -d cassandra:latest
    ```
 
 6. Open the CQL shell:
@@ -74,16 +74,11 @@ That's it for the initial setup for Cassandra in docker. Always keep docker runn
 
 2. From the Kafka folder (stored in the root directory), open up three terminals and run zookeeper, server and create Kafka Topics with the commands given below in the three separate terminals.
 
-Zookeeper (Windows):
+Zookeeper and Server (Windows):
    ```bash
    .\bin\windows\zookeeper-server-start.bat 
    .\config\zookeeper.properties
-   ```
-
-Server (Windows):
-   ```bash
-   .\bin\windows\kafka-server-start.bat 
-  .\config\server.properties
+   .\config\server.properties
    ```
 
 Topics (Windows):
