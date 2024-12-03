@@ -76,9 +76,8 @@ That's it for the initial setup for Cassandra in docker. Always keep docker runn
 
 Zookeeper and Server (Windows):
    ```bash
-   .\bin\windows\zookeeper-server-start.bat 
-   .\config\zookeeper.properties
-   .\config\server.properties
+   .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+   .\bin\windows\zookeeper-server-start.bat .\config\server.properties
    ```
 
 Topics (Windows):
