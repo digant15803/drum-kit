@@ -21,7 +21,7 @@ The architecture consists of:
 5. **AWS S3 Bucket & CloudFront**: Handles music file storage and delivery.
 6. **Client**: Connects to the server for user interaction and streaming.
 
-![Architecture Diagram](https://drive.google.com/file/d/1qv3ICie8Zwed2Mzp3-gylXNbCkmceVzJ/view?usp=sharing)
+![Architecture Diagram](https://drive.google.com/uc?id=1qv3ICie8Zwed2Mzp3-gylXNbCkmceVzJ)
 
 ## Setup Instructions
 
