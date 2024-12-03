@@ -104,3 +104,7 @@ Note: Ensure that zookeeper and server are running correctly in the background w
 	python .\manage.py runserver
     ```
 4. In a browser, open the url of the locahost listed. http://localhost:8000/login.
+
+Here is the required data to upload a song.
+Artist ID: 1024921636833263617
+Album ID: 1024921637392220161
